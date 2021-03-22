@@ -1,7 +1,6 @@
 # SAPLM
 <p align="center">
-  <img src="Documentacion/images/EESTN9_LOGO.png" alt="Home screenshot" height="200"/>
-  <img src="Documentacion/images/SAPLM_LOGO.png" alt="Settings screenshot" height="200" />
+  <img src="Documentacion/images/LOGO.png" alt="Home screenshot" height="175"/>
 </p>
 
 ## Description
