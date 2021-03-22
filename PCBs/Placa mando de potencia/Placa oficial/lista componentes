@@ -1,0 +1,24 @@
+-20 	diodos 			1n4007
+-5 		diodos zener 	3.3v 1/2W
+-10 	capacitores 	.1 uF
+-3 		capacitores		4700 uF
+-3		capacitores		2200 uF
+-5		capacitores		22 pF
+-5		resistencias	580 ohms
+-10		resistencias	1k
+-10		resistencias	470 ohms
+-5		resistencias	220 ohms
+-1		7805
+-1		7812
+-5		transistores	1n3904
+-5 		led azul
+-5		led rojo
+-5		led verde
+-5		led amarrillo
+-1		zocalo 14x2
+-5		borneras 2 terminales
+-1 		tira de pinhead machos
+-1		pinhead 2x4 hembra
+-1		cristal 16Mhz
+
+

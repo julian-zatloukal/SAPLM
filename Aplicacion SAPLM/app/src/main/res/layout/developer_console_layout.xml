@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/toolBarColor"
+        android:minHeight="?attr/actionBarSize"
+        android:outlineAmbientShadowColor="@android:color/background_light"
+        android:outlineSpotShadowColor="@android:color/background_light"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:subtitleTextColor="@android:color/background_light"
+        app:title="@string/developer_console_activity_title"
+        app:titleTextAppearance="@style/toolBarTextAppearance"
+        app:titleTextColor="@color/colorPrimary">
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/clearTerminalButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="onClickClearButton"
+
+        android:scaleType="centerInside"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintVertical_bias="0.01"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:srcCompat="@drawable/ic_delete_sweep_24px" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_area"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ScrollView
+            android:id="@+id/scrollViewTerminal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/editTextTerminal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fastScrollEnabled="true"
+            android:fastScrollAlwaysVisible="true"
+            android:fadeScrollbars="false">
+
+            <LinearLayout
+                android:id="@+id/terminalLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+        <EditText
+            android:id="@+id/editTextTerminal"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:ems="10"
+
+            android:fontFamily="@font/roboto_mono"
+
+
+            android:hint="Comando"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+
+
+            app:layout_constraintHorizontal_weight="8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/enterButton"
+            app:layout_constraintTop_toBottomOf="@id/scrollViewTerminal" />
+
+        <ImageButton
+            android:id="@+id/enterButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="onClickEnterButton"
+            android:scaleType="centerInside"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintLeft_toRightOf="@+id/editTextTerminal"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scrollViewTerminal"
+            app:srcCompat="@drawable/ic_subdirectory_arrow_left_24px" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

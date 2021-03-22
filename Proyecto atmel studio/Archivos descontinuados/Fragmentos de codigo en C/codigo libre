@@ -1,0 +1,128 @@
+
+// Design half-duplex UART utility functions
+
+#define uartBufferSize          32
+#define uartEndMsgChar          '$'
+#define F_CPU					8000000UL
+#define BUAD					9600
+#define BRC						(((F_CPU / (BUAD * 8UL))) - 1)
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+#include <stdbool.h>
+
+uint8_t* uartBuffer;
+uint8_t* uartBufferPos;
+uint8_t* uartTxMessageEnd;
+enum uartMode {DISABLED, RECEIVE_MODE, TRANSMIT_MODE};
+
+uint8_t messageArray[2][13] = {{"TURN_LED_ON"},{"TURN_LED_OFF"}};
+
+void ISR_USART_TX_VECT();
+void ISR_USART_RX_VECT();
+uint8_t UDR0 = 0x7F;
+uint8_t UBRR0H, UBRR0L, UCSR0A, UCSR0B, UCSR0C;
+#define U2X0 1
+#define UCSZ00 1
+#define UCSZ01 2
+#define TXEN0 3
+#define RXEN0 4
+#define TXCIE0 6
+#define RXCIE0 7
+
+void initUart();
+void setupReceiveMode();
+void processReceivedLine();
+
+int main()
+{
+    initUart();
+    setupReceiveMode();
+    
+    return 0;
+}
+
+void configUartMode(uartMode mode){
+    switch(mode){
+        case DISABLED:
+            UCSR0B &=~(1<<TXEN0) &~(1<<TXCIE0);
+		    UCSR0B &=~(1<<RXEN0) &~(1<<RXCIE0);
+            break;
+        case RECEIVE_MODE:
+            UCSR0B &=~(1<<TXEN0) &~(1<<TXCIE0);
+            UCSR0B |= (1<<RXEN0) | (1<<RXCIE0);
+            break;
+        case TRANSMIT_MODE:
+            UCSR0B |= (1<<TXEN0) | (1<<TXCIE0);
+		    UCSR0B &=~(1<<RXEN0) &~(1<<RXCIE0);
+            break;
+    }
+}
+
+void initUart(){
+    // UART Initialization : 8-bit : No parity bit : 1 stop bit
+    UBRR0H = (BRC >> 8); UBRR0L =  BRC;             // UART BAUDRATE 
+	UCSR0A |= (1 << U2X0);                          // DOUBLE UART SPEED
+	UCSR0C |= (1 << UCSZ01) | (1 << UCSZ00);        // 8-BIT CHARACTER SIZE
+	
+	// Setup UART buffer
+	uartBuffer = (uint8_t*)malloc(uartBufferSize);
+    uartBufferPos = uartBuffer;
+}
+
+
+void transmitMessage(uint8_t* message, uint8_t length){
+    uartBufferPos = uartBuffer;
+    uartTxMessageEnd = (uartBuffer+length);
+    memcpy(uartBuffer, message, length);
+    UCSR0B |= (1<<TXEN0) | (1<<TXCIE0);
+    UCSR0B &=~(1<<RXEN0) &~(1<<RXCIE0);
+    UDR0 = *uartBufferPos;
+	uartBufferPos++;
+}
+
+bool transmissionState(){
+    // True : Currently transmitting | False : Transmission finished 
+    if (uartBufferPos!=uartTxMessageEnd) {return true;}
+    else { return false; }
+}
+
+
+void setupReceiveMode(){
+    uartBufferPos = uartBuffer;
+    UCSR0B &=~(1<<TXEN0) &~(1<<TXCIE0);
+    UCSR0B |= (1<<RXEN0) | (1<<RXCIE0);
+}
+
+void processReceivedLine(){
+    if(memcmp(&messageArray[0][0], uartBuffer, 11)==0) { printf("Turn led on \n"); }
+    if(memcmp(&messageArray[1][0], uartBuffer, 12)==0) { printf("Turn led off \n"); }
+    uartBufferPos = uartBuffer;
+}
+
+
+void disableUART(){
+    UCSR0B &=~(1<<TXEN0) &~(1<<TXCIE0);
+    UCSR0B &=~(1<<RXEN0) &~(1<<RXCIE0);
+}
+
+
+void ISR_USART_TX_VECT(){
+	if (uartBufferPos!=uartTxMessageEnd){
+	    printf("%c \n", *uartBufferPos);
+	    UDR0 = *uartBufferPos;
+	    uartBufferPos++;
+	}
+}
+
+void ISR_USART_RX_VECT(){
+	if(uartBufferPos!=(uartBuffer+uartBufferSize)) {
+	    *uartBufferPos=UDR0;
+	    if (*uartBufferPos!=uartEndMsgChar) { uartBufferPos++; }
+	    else {processReceivedLine();}
+	}
+}
+
+

@@ -1,0 +1,183 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <stddef.h>
+#define AVAILABLE_COMMANDS 4
+#define IN1 8
+#define IN2 9
+#define IN3 10
+#define IN4 11
+
+#define LED_UNO 2
+#define LED_DOS 3
+
+using namespace std;
+
+int retardo=5;     
+int dato_rx;           
+int numero_pasos = 0;   
+String leeCadena; 
+
+String commandBuffer;
+char commandBufferChar[64];
+const char *commandBase[AVAILABLE_COMMANDS][4] = {{"ROTATE_FORWARDS ", "S"}, {"ROTATE_BACKWARDS ", "S"}, 
+    {"TURN_LED_ON ", "S"}, {"TURN_LED_OFF ", "S"}
+};
+enum commandBaseType {ROTATE_FORWARDS, ROTATE_BACKWARDS, TURN_LED_ON, TURN_LED_OFF, NONE};
+static commandBaseType getCommandType(char *cmdBuffer);
+static void handleCommand(commandBaseType command, void *parameter);
+static void handleCommandDouble(commandBaseType command, void *f_parameter, void *s_parameter);
+static void ROTATE_FORWARDS_HANDLE(int degrees);
+static void ROTATE_BACKWARDS_HANDLE(int degrees);
+static void TURN_LED_ON_HANDLE(int number);
+static void TURN_LED_OFF_HANDLE(int number);
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Goodnight moon!");
+  Serial1.begin(9600);
+  Serial1.println("Hello, world?");
+
+  pinMode(IN4, OUTPUT);    
+  pinMode(IN3, OUTPUT);    
+  pinMode(IN2, OUTPUT);    
+  pinMode(IN1, OUTPUT); 
+
+  pinMode(LED_UNO, OUTPUT);
+  pinMode(LED_DOS, OUTPUT);
+}
+
+void loop() { // run over and over
+  if (Serial1.available()) {
+    String str = Serial1.readStringUntil('\n');
+    strcpy(commandBufferChar, str.c_str());
+    Serial.println(commandBufferChar);
+
+    commandBaseType currentCommandType = getCommandType(&commandBufferChar[0]);
+    if (currentCommandType!=NONE) { 
+      Serial.println("Comando detectado correctamente!");
+      char *startNumPTR;
+      char *endNumPTR;
+      startNumPTR = strchr(commandBufferChar, '[');
+      endNumPTR = strchr(commandBufferChar, ']');
+      ptrdiff_t bytes = (endNumPTR) - (++startNumPTR);
+      char *firstParameter = (char *) malloc(bytes+1);
+      memcpy(firstParameter, startNumPTR, bytes);
+      int degrees;
+      sscanf(firstParameter, "%d", &degrees);
+      
+      handleCommand(currentCommandType, &degrees);
+    }
+    else { Serial.println("Comando no detectado"); }
+    
+  }
+  if (Serial.available()) {
+    Serial1.write(Serial.read());
+  }
+}
+
+static commandBaseType getCommandType(char *cmdBuffer){
+    for (uint8_t x = 0; x < AVAILABLE_COMMANDS; x++){
+        if (strstr(cmdBuffer, &commandBase[x][0][0] )!=nullptr) return (commandBaseType)x;
+    }
+    return NONE;
+}
+
+static void handleCommand(commandBaseType command, void *parameter){
+    int integerParameter = *((int*)parameter);
+    if (command==ROTATE_FORWARDS) ROTATE_FORWARDS_HANDLE(integerParameter);
+    if (command==ROTATE_BACKWARDS) ROTATE_FORWARDS_HANDLE(integerParameter);
+    if (command==TURN_LED_ON) TURN_LED_ON_HANDLE(integerParameter);
+    if (command==TURN_LED_OFF) TURN_LED_OFF_HANDLE(integerParameter);
+}
+
+static void handleCommandDouble(commandBaseType command, void *f_parameter, void *s_parameter){
+    
+}
+
+static void ROTATE_FORWARDS_HANDLE(int degrees){
+    Serial.println("MOVIENDO MOTOR ");
+    Serial.println(degrees);
+    
+    dato_rx = (degrees * 1.4222222222); // Ajuste de 512 vueltas a los 360 grados
+   
+    while (dato_rx>numero_pasos){   // Girohacia la izquierda en grados
+       paso_izq();
+       numero_pasos = numero_pasos + 1;
+    }
+    while (dato_rx<numero_pasos){   // Giro hacia la derecha en grados
+        paso_der();
+        numero_pasos = numero_pasos -1;
+    }
+    leeCadena = "";   // Inicializamos la cadena de caracteres recibidos 
+    apagado(); 
+}
+
+static void ROTATE_BACKWARDS_HANDLE(int degrees){
+    
+}
+
+static void TURN_LED_ON_HANDLE(int number){
+    if (number==1) {digitalWrite(LED_UNO, HIGH);}
+    if (number==2) {digitalWrite(LED_DOS, HIGH);}
+}
+
+static void TURN_LED_OFF_HANDLE(int number){
+    if (number==1) {digitalWrite(LED_UNO, LOW);}
+    if (number==2) {digitalWrite(LED_DOS, LOW);}
+}
+
+void paso_der(){         // Pasos a la derecha
+ digitalWrite(IN4, LOW); 
+ digitalWrite(IN3, LOW);  
+ digitalWrite(IN2, HIGH);  
+ digitalWrite(IN1, HIGH);  
+   delay(retardo); 
+ digitalWrite(IN4, LOW); 
+ digitalWrite(IN3, HIGH);  
+ digitalWrite(IN2, HIGH);  
+ digitalWrite(IN1, LOW);  
+   delay(retardo); 
+ digitalWrite(IN4, HIGH); 
+ digitalWrite(IN3, HIGH);  
+ digitalWrite(IN2, LOW);  
+ digitalWrite(IN1, LOW);  
+  delay(retardo); 
+ digitalWrite(IN4, HIGH); 
+ digitalWrite(IN3, LOW);  
+ digitalWrite(IN2, LOW);  
+ digitalWrite(IN1, HIGH);  
+  delay(retardo);  
+}
+
+void paso_izq() {        // Pasos a la izquierda
+ digitalWrite(IN4, HIGH); 
+ digitalWrite(IN3, HIGH);  
+ digitalWrite(IN2, LOW);  
+ digitalWrite(IN1, LOW);  
+  delay(retardo); 
+ digitalWrite(IN4, LOW); 
+ digitalWrite(IN3, HIGH);  
+ digitalWrite(IN2, HIGH);  
+ digitalWrite(IN1, LOW);  
+  delay(retardo); 
+ digitalWrite(IN4, LOW); 
+ digitalWrite(IN3, LOW);  
+ digitalWrite(IN2, HIGH);  
+ digitalWrite(IN1, HIGH);  
+  delay(retardo); 
+ digitalWrite(IN4, HIGH); 
+ digitalWrite(IN3, LOW);  
+ digitalWrite(IN2, LOW);  
+ digitalWrite(IN1, HIGH);  
+  delay(retardo); 
+}
+        
+void apagado() {         // Apagado del Motor
+ digitalWrite(IN4, LOW); 
+ digitalWrite(IN3, LOW);  
+ digitalWrite(IN2, LOW);  
+ digitalWrite(IN1, LOW);  
+ }
+
+

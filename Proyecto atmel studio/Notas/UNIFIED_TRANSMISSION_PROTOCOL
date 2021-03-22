@@ -1,0 +1,78 @@
+
+	UNIFIED COMUNICATION PROTOCOL
+	
+	[SOH][PID][RECEIVER_MODULE_ID][STX][COMMAND_CODE][PARAMETER_N_LENGTH][PARAMETER_N_DATA_MSB][···][ETX][CRC-8_CHECKSUM][ETB]
+	-
+	
+	>Create current board "commandTypeList" array. (No command list length in header!)
+		commandCode
+		handleFunction
+	
+	>Create current board "errorTypeList" array.
+	>Before running unified protocol functions assure InitializeMemory has been run.
+	
+	
+	>Unified protocol functions
+	DecomposeMessage
+		Search for SOH, check if STX is in the third position ahead. If not throw WRONG_HEADER_SEGMENTATION
+		On the next bytes following STX: search for ETX, check if ETB is in the second position ahead. If not throw WRONG_FOOTER_SEGMENTATION
+		Get the CRC-8 checksum from SOH to the byte after ETX, compare obtained checksum with CRC-8 checksum inside footer. If checksums are not equal throw WRONG_CHECKSUM_CONSISTENCY
+		If module ID is not the current board ID or 0xFF (broadcasted message), throw WRONG_MODULE_ID
+		Copy PID to lastMessagePID variable.
+		Get CommandType from COMMAND_CODE in the message. Copy it to currentCommandType.
+		Check if Parameter N LSB pointer is not greater than ETX (starting byte of footer) pointer. If it's grater throw PARAMETER_DATA_OVERFLOW
+		Copy Parameter N data into local parameters array memory.
+		Repeat with every parameter
+	
+	
+	SendLastMessageStatus
+		If decomposing was unsuccesful send error code to the sender, otherwise inform proper reception with PID code.
+		
+		
+	HandleMessage
+		Run handle function from localCommandType
+		
+	RetransmissionToModule	(Exclusive function for main module)
+		
+		
+	Diseñar Data Flow Diagram
+	Diseñar DATAGRAMA del paquete de transmision
+	
+	
+	Command list
+	
+	UPDATE_ALL_DEVICES_VALUE
+	UPDATE_DEVICE_VALUE
+	GET_ALL_DEVICES_VALUE
+	GET_DEVICE_VALUE
+	MESSAGE_STATUS
+	
+	UPDATE_ALL_DEVICES_VALUE_ID,
+	UPDATE_DEVICE_VALUE_ID,
+	GET_ALL_DEVICES_VALUE_ID,
+	GET_DEVICE_VALUE_ID,
+	MESSAGE_STATUS_ID
+	
+	UPDATE_ALL_DEVICES_VALUE_H, UPDATE_DEVICE_VALUE_H, GET_ALL_DEVICES_VALUE_H, GET_DEVICE_VALUE_H, MESSAGE_STATUS_H
+	
+	void UPDATE_ALL_DEVICES_VALUE_H() {}
+	void UPDATE_DEVICE_VALUE_H() {}
+	void GET_ALL_DEVICES_VALUE_H() {}
+	void GET_DEVICE_VALUE_H() {}
+	void MESSAGE_STATUS_H() {}
+	
+	UPDATE_ALL_DEVICES_VALUE [DEVICE_0_VALUE][DEVICE_1_VALUE][DEVICE_2_VALUE]
+	UPDATE_DEVICE_VALUE	[DEVICE_INDEX][DEVICE_VALUE]
+	GET_ALL_DEVICES_VALUE [NULL]
+	GET_DEVICE_VALUE [DEVICE_INDEX]
+	MESSAGE_STATUS [LAST_MESSAGE_EXIT_CODE]
+	
+	
+	ADD INCOHERENT_PARAMETER_SECTION
+	
+	
+	
+	
+	
+	
+	

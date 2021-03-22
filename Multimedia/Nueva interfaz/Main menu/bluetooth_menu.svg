@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56.268" height="56.268" viewBox="0 0 56.268 56.268">
+  <g id="Group_338" data-name="Group 338" transform="translate(-196 -169.135)">
+    <g id="Group_337" data-name="Group 337">
+      <g id="Ellipse_2" data-name="Ellipse 2" transform="translate(196 169.135)" fill="none" stroke="#212121" stroke-width="2">
+        <circle cx="28.134" cy="28.134" r="28.134" stroke="none"/>
+        <circle cx="28.134" cy="28.134" r="27.134" fill="none"/>
+      </g>
+      <g id="baseline-bluetooth-24px" transform="translate(201 174)">
+        <path id="Path_142" data-name="Path 142" d="M0,0H47.487V47.487H0Z" fill="none"/>
+        <path id="Path_143" data-name="Path 143" d="M30.149,13.3,18.851,2H16.872V17.018L7.79,7.936,5,10.726,16.061,21.786,5,32.847l2.79,2.79,9.082-9.082V41.573h1.979l11.3-11.3L21.64,21.786,30.149,13.3Zm-9.319-3.72,3.72,3.72-3.72,3.72Zm3.72,20.7-3.72,3.72v-7.44l3.72,3.72Z" transform="translate(4.893 1.957)" fill="#212121"/>
+      </g>
+    </g>
+  </g>
+</svg>

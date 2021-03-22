@@ -1,0 +1,97 @@
+
+	INFORME NOTAS:
+	
+	>>ARMAR EN LATEX CON NUMERO DE HOJAS Y INDICE
+	
+	DIAGRAMA EN BLOQUES SIMPLIFICADO
+	DIAGRAMA EN BLOQUES CON DATAFLOW
+	DATAGRAMA COMUNICACION
+	DIAGRAMA DE FLUJO DECOMPOSE Y COMPOSE
+	
+	TODOS LOS EXPORT DE PCB, CON PREFACIO Y LISTA DE COMPONENTES CON PRECIO
+	
+	CODIGO DE TODAS LAS PLACAS (AVR GCC)
+	
+	CODIGO DE TODAS LAS CLASES DE LA APLICACION (JAVA)
+	
+	CODIGO ARCHIVOS XML
+	
+JAVA	
+
+SAPLM.bluetoothActivities
+	AvailableDevice
+	BluetoothActivity
+	BluetoothConnection
+	CRC8_CCITT
+	DeviceListAdapter
+	UnifiedTransmissionProtocol
+SAPLM.commandActivity
+	CommandItem
+	CommandsActivity
+	CommandsListAdapter
+SAPLM.settingsActivities
+	AppearanceMiscellaneousActivity
+	AvailableSetting
+	BluetoothSettingsActivity
+	CommandsSettingsActivity
+	ContactsCommunicationActivity
+	DeveloperConsoleActivity
+	InformationHelpActivity
+	InternetConectivityActivity
+	MyDividerItemDecoration
+	RecyclerTouchListener
+	settings_layout
+	SettingsLayoutAdapter
+	TerminalManager
+	VoiceRecognitionSettingsActivity
+SAPLM.Application
+SAPLM.ContactsActivity
+SAPLM.GoogleSpeechRecognizer
+SAPLM.MainActivity
+SAPLM.MainMenuHandler
+SAPLM.MicrophoneHandler
+SAPLM.PocketsphinxListener
+SAPLM.TextToSpeechHandler
+
+
+XML
+
+activity_main.xml
+appearance_miscellaneous_layout.xml
+bluetooth_layout.xml
+bluetooth_list_layout_style.xml
+bluetooth_settings_layout.xml
+commands_layout.xml
+commands_layout_child_item_style.xml
+commands_layout_parent_item_style.xml
+commands_settings_layout.xml
+contacts_communication_layout.xml
+contacts_layout.xml
+developer_console_layout.xml
+information_help_layout.xml
+internet_conectivity_layout.xml
+settings_layout.xml
+settings_layout_style.xml
+voice_recognition_settings_layout.xml
+
+
+MODULO PRINCIPAL AVR-GCC
+	main.c
+	Command_Handler.c
+	Command_Handler.h
+	UART_Bluetooth.c
+	UART_Bluetooth.h
+	crc.c
+	crc.h
+	nrf24.c
+	nrf24.h
+
+MODULO DE POTENCIA AVR-GCC
+	main.c
+	Command_Handler.c
+	Command_Handler.h
+	nrf24.c
+	nrf24.h
+	nRF24L01_Definitions.h
+	crc.c
+	crc.h

@@ -1,0 +1,18 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Abstract}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Diagrama en bloques}{4}{section.2}% 
+\contentsline {section}{\numberline {3}Diagrama de flujo para encender estufa}{5}{section.3}% 
+\contentsline {section}{\numberline {4}Comandos de voz disponibles}{6}{section.4}% 
+\contentsline {section}{\numberline {5}Diagrama de flujo}{7}{section.5}% 
+\contentsline {section}{\numberline {6}Imagenes de la aplicación}{8}{section.6}% 
+\contentsline {section}{\numberline {7}Carpeta de campo}{11}{section.7}% 
+\contentsline {section}{\numberline {8}ComposeCommand diagrama de flujo}{14}{section.8}% 
+\contentsline {section}{\numberline {9}DecomposeCommand diagrama de flujo}{17}{section.9}% 
+\contentsline {section}{\numberline {10}Circuito impreso, módulo principal}{20}{section.10}% 
+\contentsline {section}{\numberline {11}Circuito impreso, módulo de potencia}{26}{section.11}% 
+\contentsline {section}{\numberline {12}Circuito impreso, módulo de mandos motrices}{32}{section.12}% 
+\contentsline {section}{\numberline {13}Código de fuente, módulo principal}{38}{section.13}% 
+\contentsline {section}{\numberline {14}Código de fuente, módulo de potencia}{72}{section.14}% 
+\contentsline {section}{\numberline {15}Código de fuente, módulo de mandos motrices}{102}{section.15}% 
+\contentsline {section}{\numberline {16}Código de fuente, aplicación SAPLM}{134}{section.16}% 
+\contentsline {section}{\numberline {17}Código de fuente, Diseño de activities}{222}{section.17}% 

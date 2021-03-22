@@ -1,0 +1,33 @@
+
+
+UNIFIED PROTOCOL HEX
+
+	C:\_Library256\Feria_2019\Proyecto atmel studio\Unified transmission protocol\Codigo de fuente placa de potencia\Proyecto de placa de potencia\Proyecto de placa de potencia\Debug\Proyecto de placa de potencia.hex
+	
+	C:\_Library256\Feria_2019\Proyecto atmel studio\Unified transmission protocol\Codigo de fuente placa principal\Proyecto de placa principal\Proyecto de placa principal\Debug\Proyecto de placa principal.hex
+	
+	C:\_Library256\Feria_2019\Proyecto atmel studio\Unified transmission protocol\Codigo de fuente placa motriz\Proyecto de placa motriz\Proyecto de placa motriz\Debug\Proyecto de placa motriz.hex
+	
+	
+
+Comandos
+	
+	ENCENDER RELE 0 :		01 FF 01 02 01 01 00 01 FF 03 BD 17
+	APAGAR RELE 0 : 		01 FF 01 02 01 01 00 01 00 03 4E 17
+	OBTENER VALOR RELE 0: 	01 FF 01 02 03 01 00 03 96 17
+	
+	PHONE MODULE ID : 7F
+	MAIN MODULE ID : 00
+	
+	
+	ENCENDER RELE 0 :		01 FF 01 02 01 01 00 01 FF 03 BD 17
+		{(byte)0x01, (byte)0xFF, (byte)0x01, (byte)0x02, (byte)0x01, (byte)0x01, (byte)0x00, (byte)0x01, (byte)0xFF, (byte)0x03, (byte)0x00, (byte)0x17}
+		
+		
+	CAMBIAR VALOR CORTINA : 01 FF 02 02 01 01 00 01 XX 03 00 17
+	
+	APAGAR TODO POTENCIA: 		01 FF 01 02 00 01 00 03 00 17
+	
+	ENCENDER TODO POTENCIA: 	01 FF 01 02 00 01 FF 03 00 17			
+	
+	LLAMAR ENFERMERA (PLACA MOTRIZ)  :  01 FF 02 02 01 01 02 01 FF 03 00 17

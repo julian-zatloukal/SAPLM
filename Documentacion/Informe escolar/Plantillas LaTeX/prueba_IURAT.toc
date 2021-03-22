@@ -1,0 +1,14 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Ejercicio 1}{2}% 
+\contentsline {subsection}{\numberline {a}C\IeC {\'a}lculo de filtro L-C}{2}% 
+\contentsline {subsection}{\numberline {b}Circuito de control}{2}% 
+\contentsline {subsection}{\numberline {c}Simulacion en Proteus VSM}{2}% 
+\contentsline {section}{\numberline {2}Ejercicio 2}{3}% 
+\contentsline {subsection}{\numberline {a}C\IeC {\'a}lculo de filtro L-C}{3}% 
+\contentsline {subsection}{\numberline {b}Dise\IeC {\~n}o de circuito de control con temporizador 555}{3}% 
+\contentsline {subsection}{\numberline {c}Simulaci\IeC {\'o}n en Proteus VSM}{3}% 
+\contentsline {section}{\numberline {3}Ejercicio 3}{4}% 
+\contentsline {subsection}{\numberline {a}C\IeC {\'a}lculo de filtro L-C}{4}% 
+\contentsline {subsection}{\numberline {b}Dise\IeC {\~n}o de circuito de control con oscilador de diente de sierra y comparador}{4}% 
+\contentsline {subsection}{\numberline {c}Simulacion en Proteus VSM}{4}% 
+\contentsline {section}{Bibliograf\IeC {\'\i }a}{4}% 

@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">SAPLM</string>
+
+    <string name="settings_activity_title">Configuraciones</string>
+
+    <string name="internet_conectivity_title">Conectividad a internet</string>
+    <string name="appearance_miscellaneous_title">Apariencia y miscelaneos</string>
+    <string name="bluetooth_settings_title">Conectividad Bluetooth</string>
+    <string name="contacts_communication_title">Contactos y comunicación</string>
+    <string name="information_help_title">Información y ayuda</string>
+    <string name="voice_recognition_settings_title">Reconocimiento de voz</string>
+    <string name="commands_settings_title">Configuración de mandos</string>
+    <string name="developer_console_activity_title">Terminal</string>
+
+    <string name="internet_conectivity_subtitle">Configuración disponible para la conectividad de internet.</string>
+    <string name="appearance_miscellaneous_subtitle">Paleta de colores, idioma, experiencia del usuario.</string>
+    <string name="bluetooth_settings_subtitle">Configuración disponible para la conectividad Bluetooth.</string>
+    <string name="contacts_communication_subtitle">Gestionar contactos. Modificar el servicio de llamadas y mensajeria.</string>
+    <string name="information_help_subtitle">Guias para el control de la aplicacion. Informacion adicional.</string>
+    <string name="voice_recognition_settings_subtitle">Palabras clave, sensibilidad, comandos disponibles.</string>
+    <string name="commands_settings_subtitle">Visualizar estado. Agregar, quitar o modificar mandos.</string>
+    <string name="developer_console_subtitle">Terminal para ingresar comandos de desarrollador</string>
+
+
+    <string name="bluetooth_activity_title">Bluetooth</string>
+    <string name="contacts_activity_title">Contactos</string>
+    <string name="commands_activity_title">Mandos</string>
+
+    <string name="bluetooth_disabled_message">Bluetooth desactivado</string>
+    <string name="bluetooth_search_message">Buscar dispositivos</string>
+    <string name="bluetooth_searching_message">Buscando dispositivos</string>
+    <string name="bluetooth_attempting_connection_message">Intentando conexion...</string>
+
+    <string name="bluetooth_initializing_adapater">Iniciando Bluetooth</string>
+    <string name="bluetooth_closing_adapter">Apagando Bluetooth</string>
+
+    <string name="system_connected_message">Sistema conectado</string>
+    <string name="system_disconnected_message">Sistema desconectado</string>
+
+</resources>

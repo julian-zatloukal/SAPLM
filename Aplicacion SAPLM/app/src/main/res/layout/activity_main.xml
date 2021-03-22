@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/imgBtn_microphone_background"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:onClick="onClickListener_microphone"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:tint="@color/ColorBackMicKeyword"
+        app:srcCompat="@drawable/ic_main_mic_circle"
+        android:stateListAnimator="@null"/>
+
+    <ImageButton
+        android:id="@+id/imgBtn_microphone"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:onClick="onClickListener_microphone"
+        android:scaleType="fitXY"
+        android:stateListAnimator="@null"
+        android:tint="@color/ColorMic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.501"
+        app:srcCompat="@drawable/ic_main_mic_listening" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_commands"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="284dp"
+        android:alpha="0.0"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:onClick="onClickListener_commands"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_commands_menu" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_contacts"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="283dp"
+        android:alpha="0.0"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:onClick="onClickListener_contacts"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_contacts_menu" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_bluetooth"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="283dp"
+        android:alpha="0.0"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:onClick="onClickListener_bluetooth"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_icono_bluetooth_remake" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_settings"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="283dp"
+        android:alpha="0.0"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:onClick="onClickListener_settings"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_settings_menu" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_menu"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:onClick="onClickListener_menu"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgBtn_microphone_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_bluetooth_menu" />
+
+    <TextView
+        android:id="@+id/textView_speechRecognitionResults"
+        style="@style/hypothesisTextAppearance"
+        android:layout_width="311dp"
+        android:layout_height="101dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Lorem ipsum dolor sit amet, consectetur\nNulla lobortis ac arcu vitae aliquam.\nCras feugiat, est quis volutpat interdum\nhola comer te va picante\nhola pepe aguante boquita"
+        android:textAlignment="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.931" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

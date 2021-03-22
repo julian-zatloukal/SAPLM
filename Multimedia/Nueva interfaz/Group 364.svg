@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="342" height="380" viewBox="0 0 342 380">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: rgba(0,0,0,0.87);
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        filter: url(#Rectangle_158);
+      }
+    </style>
+    <filter id="Rectangle_158" x="0" y="31" width="342" height="349" filterUnits="userSpaceOnUse">
+      <feOffset dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.251"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_364" data-name="Group 364" transform="translate(-9 -91)">
+    <g class="cls-4" transform="matrix(1, 0, 0, 1, 9, 91)">
+      <g id="Rectangle_158-2" data-name="Rectangle 158" class="cls-1" transform="translate(9 36)">
+        <path class="cls-2" d="M0,0H324a0,0,0,0,1,0,0V311a20,20,0,0,1-20,20H20A20,20,0,0,1,0,311V0A0,0,0,0,1,0,0Z"/>
+        <path class="cls-3" d="M2,1H322a1,1,0,0,1,1,1V311a19,19,0,0,1-19,19H20A19,19,0,0,1,1,311V2A1,1,0,0,1,2,1Z"/>
+      </g>
+    </g>
+    <g id="Rectangle_161" data-name="Rectangle 161" class="cls-1" transform="translate(18 91)">
+      <path class="cls-2" d="M20,0H304a20,20,0,0,1,20,20V38a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z"/>
+      <path class="cls-3" d="M20,1H304a19,19,0,0,1,19,19V36a1,1,0,0,1-1,1H2a1,1,0,0,1-1-1V20A19,19,0,0,1,20,1Z"/>
+    </g>
+  </g>
+</svg>

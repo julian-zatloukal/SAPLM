@@ -1,0 +1,76 @@
+
+
+	Codigo de funte SAPLM : MONOSPACED 11/12pt
+		Codigo fuente : Aplicacion SAPLM
+			Codigo fuente : Todas las clases de JAVA
+			Codigo fuente : Todos los diseños en XML
+			Anotaciones y referencias hacia documentacion SAPLM
+		Codigo fuente : Placa principal
+			Anotaciones y referencias hacia documentacion SAPLM
+		Codigo fuente : Placa potencia
+			Anotaciones y referencias hacia documentacion SAPLM
+		Codigo fuente : Placa Motriz
+			Anotaciones y referencias hacia documentacion SAPLM
+
+
+	Documentacion SAPLM		:	(Open Sans ?) 
+	
+		Funcionamiento general
+			Flujo de informacion
+			Tipo de placas
+			Accionamiento de mandos
+			Instalacion basica
+		Aplicacion SAPLM
+			Reconocimiento de voz
+				Desafios y limitaciones en primera instancia
+				Google API
+				CMU Sphinx
+				Basados en redes neuronales
+					Tensorflow
+					Snowboy
+			Flujo de informacion Bluetooth
+				Activity conexion Bluetooth
+				Descripcion de clase Bluetooth Connection
+				Protocolo de comunicacion de comandos por parte de JAVA
+			Menu de configuraciones
+				Descripcion de configuraciones
+			Comunicacion SAPLM
+				Servicio de llamadas
+				Servicio de mensajeria
+			Diseño y estetica
+				Diseño de activities en Android Studio con XML
+					Imagenes de todas las activities en runtime
+				Adobe XD
+				Adobe Illustrator
+				Google Material
+		Sistema electronico SAPLM
+			Descripcion general sistema
+				nRF24L01
+				Bluetooth HC-05
+				Propiedades de ATMEGA88PA y ATMEGA328P
+			Placa principal
+				Funcionamiento tecnico
+					Funcionamiento del codigo de fuente
+				Diseño en EAGLE
+				Montaje
+				Experiencia de campo
+			Placa de potencia
+				Funcionamiento tecnico
+					Funcionamiento del codigo de fuente
+				Diseño en EAGLE
+				Montaje
+				Experiencia de campo
+			Placa motriz
+				Funcionamiento tecnico
+					Funcionamiento del codigo de fuente
+				Diseño en EAGLE
+				Montaje
+				Experiencia de campo	
+		Carpeta de campo
+			Analisis de los meses de trabajo
+		Miscelaneos
+			Diseño de logo
+			
+		
+		
+	

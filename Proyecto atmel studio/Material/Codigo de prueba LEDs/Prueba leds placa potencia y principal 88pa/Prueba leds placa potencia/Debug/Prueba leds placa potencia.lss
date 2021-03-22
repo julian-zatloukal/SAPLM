@@ -1,0 +1,219 @@
+
+Prueba leds placa potencia.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000f6  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         000006cc  00000000  00000000  0000014c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      00000097  00000000  00000000  00000818  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_aranges 00000028  00000000  00000000  000008af  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 00000026  00000000  00000000  000008d7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000002ae  00000000  00000000  000008fd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000011b  00000000  00000000  00000bab  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000246  00000000  00000000  00000cc6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000030  00000000  00000000  00000f0c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000158  00000000  00000000  00000f3c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_pubtypes 00000038  00000000  00000000  00001094  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000018  00000000  00000000  000010cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	19 c0       	rjmp	.+50     	; 0x34 <__ctors_end>
+   2:	20 c0       	rjmp	.+64     	; 0x44 <__bad_interrupt>
+   4:	1f c0       	rjmp	.+62     	; 0x44 <__bad_interrupt>
+   6:	1e c0       	rjmp	.+60     	; 0x44 <__bad_interrupt>
+   8:	1d c0       	rjmp	.+58     	; 0x44 <__bad_interrupt>
+   a:	1c c0       	rjmp	.+56     	; 0x44 <__bad_interrupt>
+   c:	1b c0       	rjmp	.+54     	; 0x44 <__bad_interrupt>
+   e:	1a c0       	rjmp	.+52     	; 0x44 <__bad_interrupt>
+  10:	19 c0       	rjmp	.+50     	; 0x44 <__bad_interrupt>
+  12:	18 c0       	rjmp	.+48     	; 0x44 <__bad_interrupt>
+  14:	17 c0       	rjmp	.+46     	; 0x44 <__bad_interrupt>
+  16:	16 c0       	rjmp	.+44     	; 0x44 <__bad_interrupt>
+  18:	15 c0       	rjmp	.+42     	; 0x44 <__bad_interrupt>
+  1a:	14 c0       	rjmp	.+40     	; 0x44 <__bad_interrupt>
+  1c:	13 c0       	rjmp	.+38     	; 0x44 <__bad_interrupt>
+  1e:	12 c0       	rjmp	.+36     	; 0x44 <__bad_interrupt>
+  20:	11 c0       	rjmp	.+34     	; 0x44 <__bad_interrupt>
+  22:	10 c0       	rjmp	.+32     	; 0x44 <__bad_interrupt>
+  24:	0f c0       	rjmp	.+30     	; 0x44 <__bad_interrupt>
+  26:	0e c0       	rjmp	.+28     	; 0x44 <__bad_interrupt>
+  28:	0d c0       	rjmp	.+26     	; 0x44 <__bad_interrupt>
+  2a:	0c c0       	rjmp	.+24     	; 0x44 <__bad_interrupt>
+  2c:	0b c0       	rjmp	.+22     	; 0x44 <__bad_interrupt>
+  2e:	0a c0       	rjmp	.+20     	; 0x44 <__bad_interrupt>
+  30:	09 c0       	rjmp	.+18     	; 0x44 <__bad_interrupt>
+  32:	08 c0       	rjmp	.+16     	; 0x44 <__bad_interrupt>
+
+00000034 <__ctors_end>:
+  34:	11 24       	eor	r1, r1
+  36:	1f be       	out	0x3f, r1	; 63
+  38:	cf ef       	ldi	r28, 0xFF	; 255
+  3a:	d4 e0       	ldi	r29, 0x04	; 4
+  3c:	de bf       	out	0x3e, r29	; 62
+  3e:	cd bf       	out	0x3d, r28	; 61
+  40:	09 d0       	rcall	.+18     	; 0x54 <main>
+  42:	57 c0       	rjmp	.+174    	; 0xf2 <_exit>
+
+00000044 <__bad_interrupt>:
+  44:	dd cf       	rjmp	.-70     	; 0x0 <__vectors>
+
+00000046 <initIO>:
+			CSN	 : PC1						|	OUTPUT
+			MISO : PD0 (MSPIM MISO ATMEGA)	|	INPUT
+			MOSI : PD1 (MSPIM MOSI ATMEGA)	|	OUTPUT
+			SCK	 : PD4 (MSPIM XCK)			|	OUTPUT
+	*/ 
+	DDRD = 0b11111110;
+  46:	8e ef       	ldi	r24, 0xFE	; 254
+  48:	8a b9       	out	0x0a, r24	; 10
+	DDRB = 0b00101001;
+  4a:	89 e2       	ldi	r24, 0x29	; 41
+  4c:	84 b9       	out	0x04, r24	; 4
+	DDRC = 0b11011111;
+  4e:	8f ed       	ldi	r24, 0xDF	; 223
+  50:	87 b9       	out	0x07, r24	; 7
+}
+  52:	08 95       	ret
+
+00000054 <main>:
+
+void initIO();
+
+int main(void)
+{
+	initIO();
+  54:	f8 df       	rcall	.-16     	; 0x46 <initIO>
+    while (1) 
+    {
+		_delay_ms(250);
+		bit_flip(PORTD, BIT(7));
+		_delay_ms(250);
+		bit_flip(PORTB, BIT(0));
+  56:	51 e0       	ldi	r21, 0x01	; 1
+		_delay_ms(250);
+		bit_flip(PORTD, BIT(3));
+  58:	48 e0       	ldi	r20, 0x08	; 8
+		_delay_ms(250);
+		bit_flip(PORTD, BIT(2));
+  5a:	34 e0       	ldi	r19, 0x04	; 4
+		_delay_ms(250);
+		bit_flip(PORTD, BIT(6));
+  5c:	20 e4       	ldi	r18, 0x40	; 64
+		_delay_ms(250);
+		bit_flip(PORTD, BIT(5));
+  5e:	60 e2       	ldi	r22, 0x20	; 32
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  60:	8f ef       	ldi	r24, 0xFF	; 255
+  62:	94 e3       	ldi	r25, 0x34	; 52
+  64:	ac e0       	ldi	r26, 0x0C	; 12
+  66:	81 50       	subi	r24, 0x01	; 1
+  68:	90 40       	sbci	r25, 0x00	; 0
+  6a:	a0 40       	sbci	r26, 0x00	; 0
+  6c:	e1 f7       	brne	.-8      	; 0x66 <main+0x12>
+  6e:	00 c0       	rjmp	.+0      	; 0x70 <main+0x1c>
+  70:	00 00       	nop
+	initIO();
+
+    while (1) 
+    {
+		_delay_ms(250);
+		bit_flip(PORTD, BIT(7));
+  72:	8b b1       	in	r24, 0x0b	; 11
+  74:	80 58       	subi	r24, 0x80	; 128
+  76:	8b b9       	out	0x0b, r24	; 11
+  78:	8f ef       	ldi	r24, 0xFF	; 255
+  7a:	94 e3       	ldi	r25, 0x34	; 52
+  7c:	ac e0       	ldi	r26, 0x0C	; 12
+  7e:	81 50       	subi	r24, 0x01	; 1
+  80:	90 40       	sbci	r25, 0x00	; 0
+  82:	a0 40       	sbci	r26, 0x00	; 0
+  84:	e1 f7       	brne	.-8      	; 0x7e <main+0x2a>
+  86:	00 c0       	rjmp	.+0      	; 0x88 <main+0x34>
+  88:	00 00       	nop
+		_delay_ms(250);
+		bit_flip(PORTB, BIT(0));
+  8a:	85 b1       	in	r24, 0x05	; 5
+  8c:	85 27       	eor	r24, r21
+  8e:	85 b9       	out	0x05, r24	; 5
+  90:	8f ef       	ldi	r24, 0xFF	; 255
+  92:	94 e3       	ldi	r25, 0x34	; 52
+  94:	ac e0       	ldi	r26, 0x0C	; 12
+  96:	81 50       	subi	r24, 0x01	; 1
+  98:	90 40       	sbci	r25, 0x00	; 0
+  9a:	a0 40       	sbci	r26, 0x00	; 0
+  9c:	e1 f7       	brne	.-8      	; 0x96 <main+0x42>
+  9e:	00 c0       	rjmp	.+0      	; 0xa0 <main+0x4c>
+  a0:	00 00       	nop
+		_delay_ms(250);
+		bit_flip(PORTD, BIT(3));
+  a2:	8b b1       	in	r24, 0x0b	; 11
+  a4:	84 27       	eor	r24, r20
+  a6:	8b b9       	out	0x0b, r24	; 11
+  a8:	8f ef       	ldi	r24, 0xFF	; 255
+  aa:	94 e3       	ldi	r25, 0x34	; 52
+  ac:	ac e0       	ldi	r26, 0x0C	; 12
+  ae:	81 50       	subi	r24, 0x01	; 1
+  b0:	90 40       	sbci	r25, 0x00	; 0
+  b2:	a0 40       	sbci	r26, 0x00	; 0
+  b4:	e1 f7       	brne	.-8      	; 0xae <main+0x5a>
+  b6:	00 c0       	rjmp	.+0      	; 0xb8 <main+0x64>
+  b8:	00 00       	nop
+		_delay_ms(250);
+		bit_flip(PORTD, BIT(2));
+  ba:	8b b1       	in	r24, 0x0b	; 11
+  bc:	83 27       	eor	r24, r19
+  be:	8b b9       	out	0x0b, r24	; 11
+  c0:	8f ef       	ldi	r24, 0xFF	; 255
+  c2:	94 e3       	ldi	r25, 0x34	; 52
+  c4:	ac e0       	ldi	r26, 0x0C	; 12
+  c6:	81 50       	subi	r24, 0x01	; 1
+  c8:	90 40       	sbci	r25, 0x00	; 0
+  ca:	a0 40       	sbci	r26, 0x00	; 0
+  cc:	e1 f7       	brne	.-8      	; 0xc6 <main+0x72>
+  ce:	00 c0       	rjmp	.+0      	; 0xd0 <main+0x7c>
+  d0:	00 00       	nop
+		_delay_ms(250);
+		bit_flip(PORTD, BIT(6));
+  d2:	8b b1       	in	r24, 0x0b	; 11
+  d4:	82 27       	eor	r24, r18
+  d6:	8b b9       	out	0x0b, r24	; 11
+  d8:	8f ef       	ldi	r24, 0xFF	; 255
+  da:	94 e3       	ldi	r25, 0x34	; 52
+  dc:	ac e0       	ldi	r26, 0x0C	; 12
+  de:	81 50       	subi	r24, 0x01	; 1
+  e0:	90 40       	sbci	r25, 0x00	; 0
+  e2:	a0 40       	sbci	r26, 0x00	; 0
+  e4:	e1 f7       	brne	.-8      	; 0xde <main+0x8a>
+  e6:	00 c0       	rjmp	.+0      	; 0xe8 <main+0x94>
+  e8:	00 00       	nop
+		_delay_ms(250);
+		bit_flip(PORTD, BIT(5));
+  ea:	8b b1       	in	r24, 0x0b	; 11
+  ec:	86 27       	eor	r24, r22
+  ee:	8b b9       	out	0x0b, r24	; 11
+  f0:	b7 cf       	rjmp	.-146    	; 0x60 <main+0xc>
+
+000000f2 <_exit>:
+  f2:	f8 94       	cli
+
+000000f4 <__stop_program>:
+  f4:	ff cf       	rjmp	.-2      	; 0xf4 <__stop_program>

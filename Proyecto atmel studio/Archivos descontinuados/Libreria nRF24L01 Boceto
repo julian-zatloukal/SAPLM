@@ -1,0 +1,47 @@
+
+	Notas para sistema radio frecuencia
+	
+	• El led verde de la placa debe tener correlacion con el registro Received Power Detector (RPD) o estar relacionado con la estabilidad de la comunicacion de radio frecuencia
+	 
+	• El led rojo podria tratarse de una señal que indique que el sistema esta actualmente procesando un comando, con un periodo minimo de 200mS
+	 
+	• RF_CH = 64 (0x40; 0b01000000)  |  Placa de potencia 
+	• RF_CH = 96 (0x60; 0b01100000)  |  Placa de camilla 
+	
+	• Se procurará en todo caso la seguridad en la transferencia de los mensajes, no la velocidad de transferencia de datos.
+	
+	• FIFO_STATUS para visualizar progreso de la transmision
+	
+	• Pagina 72 ejemplo de configuracion para una comunicacion  
+	
+	• funcion uint8_t nRF24_INITIALIZE_RX(uint8_t channel, uint8_t payload_length, ); Para inicializar modulo de radio frecuencia en modo receptor
+	
+	• funcion uint8_t nRF24_INITIALIZE_TX(); Para inicializar modulo de radio frecuencia en modo transmisor
+	
+	• funcion void nRF24_RECEIVE(uint8_t* buffer); Verifica si hay bytes por leer en el buffer FIFO, si hay los recive y devuelve un pointer, el pointer indicara si el buffer esta vacio o si hubo algun error
+	
+	• funcion uint8_t nRF24_TRANSMIT(uint8_t* buffer, uint8_t length); Enviará la informacion y espera a que el mensaje se enviado por completo. Es una funcion sincronizada y devolverá un codigo de error el cual describirá si hubo una transmision exitosa, fallida o sí no se pudo comunicar con el modulo de radiofrecuencia.
+	
+	
+	
+	• Registros placa potencia
+	SETUP_RETR = 0b11111111 (0xFF; 255)
+		ARD = 1111 = 4000uS
+		ARC = 1111 = 15 Retransmission
+	RF_CH = 64 (0x40; 0b01000000)	Para placa de potencia
+	RF_SETUP = 0b01100100
+		CONT_WAVE = LOW
+		RF_DR_LOW = HIGH
+		PLL_LOCK = LOW
+		RF_DR_HIGH = LOW
+		RF_PWR = 11 (0 dBm)
+	RX_PW_P1 = 32 (0x20; 0b00100000)
+	
+	
+	
+	
+	
+	
+	
+	
+	
